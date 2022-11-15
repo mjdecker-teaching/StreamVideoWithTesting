@@ -23,14 +23,14 @@ add_custom_target(run COMMENT "Run main program"
 
 # Test program dependency catch2
 include(FetchContent)
-FetchContent_Declare(Catch2
+FetchContent_Declare(catch2
   URL https://github.com/catchorg/Catch2/releases/download/v2.13.10/catch.hpp
   DOWNLOAD_NO_EXTRACT TRUE
 )
-FetchContent_MakeAvailable(Catch2)
-add_library(Catch2 INTERFACE IMPORTED)
-target_include_directories(Catch2 SYSTEM INTERFACE ${Catch2_SOURCE_DIR})
-add_library(Catch2::Catch2 ALIAS Catch2)
+FetchContent_MakeAvailable(catch2)
+add_library(catch2 INTERFACE IMPORTED)
+target_include_directories(catch2 SYSTEM INTERFACE ${catch2_SOURCE_DIR})
+add_library(Catch2::Catch2 ALIAS catch2)
 
 # Test programs
 add_executable(VideoTest VideoTest.cpp Video.cpp)
