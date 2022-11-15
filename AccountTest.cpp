@@ -173,11 +173,3 @@ TEST_CASE( "All", "[Account]" ) {
       "Potato,TVSHOW,Star Trek: The Next Generation,0,104,2\n"
     );
 }
-
-/*
-MOVIE,The Lord of the Rings: The Fellowship of the Ring,3,18,
-MOVIE,The Lord of the Rings: The Two Towers,3,19,
-MOVIE,The Lord of the Rings: The Return of the King,3,20,
-ORIGINAL,The Original Movie,2,7,
-TVSHOW,Friends,0,26,236
-*/
