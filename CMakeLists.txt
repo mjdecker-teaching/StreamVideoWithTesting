@@ -18,7 +18,7 @@ add_executable(StreamingActivity StreamingActivity.cpp
 
 # Run main program
 add_custom_target(run COMMENT "Run main program"
-                      COMMAND $<TARGET_FILE:StreamingActivity>
+                      COMMAND $<TARGET_FILE:StreamingActivity> videos.csv
                       DEPENDS StreamingActivity)
 
 # Test program dependency catch2

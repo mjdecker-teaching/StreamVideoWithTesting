@@ -15,12 +15,17 @@
 
 int main(int argc, char* argv[]) {
 
+    // verify options
+    if (argc != 2) {
+        std::cerr << "Usage: " << argv[0] << "<file>" << '\n';
+        return 1;
+    }
+
     // Load videos from data file
-    const char* input_filename = "videos.csv";
     std::vector<Video> videos;
-    std::ifstream invideo(input_filename);
+    std::ifstream invideo(argv[1]);
     if (!invideo) {
-        std::cerr << argv[0] << ": Unable to open input file " << input_filename << '\n';
+        std::cerr << argv[0] << ": Unable to open input file " << argv[1] << '\n';
         return 1;
     }
 
