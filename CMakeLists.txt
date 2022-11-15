@@ -40,5 +40,5 @@ add_custom_target(test COMMENT "Run all tests"
 
 # Download external library (in single include file) catch.hpp
 # Note: If Download does not work, download manually
-file(DOWNLOAD https://github.com/catchorg/Catch2/releases/download/v2.13.7/catch.hpp
+file(DOWNLOAD https://github.com/catchorg/Catch2/releases/download/v2.13.10/catch.hpp
               ${CMAKE_SOURCE_DIR}/catch.hpp)
