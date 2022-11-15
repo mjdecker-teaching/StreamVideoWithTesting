@@ -18,7 +18,7 @@ add_executable(StreamingActivity StreamingActivity.cpp
 
 # Run main program
 add_custom_target(run COMMENT "Run main program"
-                      COMMAND ./StreamingActivity
+                      COMMAND $<TARGET_FILE:StreamingActivity>
                       DEPENDS StreamingActivity)
 
 # Test programs
