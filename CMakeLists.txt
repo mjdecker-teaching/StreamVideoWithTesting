@@ -16,6 +16,9 @@ add_executable(StreamingActivity StreamingActivity.cpp
                                  Stream.cpp
                                  Account.cpp)
 
+# Default data file
+file(COPY videos.csv DESTINATION "${CMAKE_BINARY_DIR}")
+
 # Run main program
 add_custom_target(run COMMENT "Run main program"
                       COMMAND $<TARGET_FILE:StreamingActivity> videos.csv
