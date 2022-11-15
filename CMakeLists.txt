@@ -7,8 +7,9 @@ cmake_minimum_required(VERSION 3.18)
 # project info
 project(Streaming)
 
-# C++11 standard
+# C++17 standard
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Main program
 add_executable(StreamingActivity StreamingActivity.cpp
