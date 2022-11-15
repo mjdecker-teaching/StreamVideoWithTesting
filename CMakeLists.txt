@@ -21,13 +21,24 @@ add_custom_target(run COMMENT "Run main program"
                       COMMAND $<TARGET_FILE:StreamingActivity>
                       DEPENDS StreamingActivity)
 
+# Test program dependency catch2
+include(FetchContent)
+FetchContent_Declare(catch2
+  URL https://github.com/catchorg/Catch2/releases/download/v2.13.10/catch.hpp
+  DOWNLOAD_NO_EXTRACT TRUE
+)
+FetchContent_MakeAvailable(catch2)
+add_library(catch2 INTERFACE IMPORTED)
+target_include_directories(catch2 SYSTEM INTERFACE ${catch2_SOURCE_DIR})
+
+
 # Test programs
-set(VIDEO_SOURCE VideoTest.cpp Video.cpp)
-add_executable(VideoTest ${VIDEO_SOURCE})
-set(STREAM_SOURCE StreamTest.cpp Stream.cpp Video.cpp)
-add_executable(StreamTest ${STREAM_SOURCE})
-set(ACCOUNT_SOURCE AccountTest.cpp Account.cpp Stream.cpp Video.cpp)
-add_executable(AccountTest ${ACCOUNT_SOURCE})
+add_executable(VideoTest VideoTest.cpp Video.cpp)
+target_link_libraries(VideoTest catch2)
+add_executable(StreamTest StreamTest.cpp Stream.cpp Video.cpp)
+target_link_libraries(StreamTest catch2)
+add_executable(AccountTest AccountTest.cpp Account.cpp Stream.cpp Video.cpp)
+target_link_libraries(AccountTest catch2)
 
 # Run all tests
 add_custom_target(test COMMENT "Run all tests"
@@ -37,8 +48,3 @@ add_custom_target(test COMMENT "Run all tests"
                        DEPENDS VideoTest
                        DEPENDS StreamTest
                        DEPENDS AccountTest)
-
-# Download external library (in single include file) catch.hpp
-# Note: If Download does not work, download manually
-file(DOWNLOAD https://github.com/catchorg/Catch2/releases/download/v2.13.10/catch.hpp
-              ${CMAKE_SOURCE_DIR}/catch.hpp)
