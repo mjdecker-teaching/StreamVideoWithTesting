@@ -4,8 +4,8 @@
   Include file for Stream class
 */
 
-#ifndef RENTAL_H
-#define RENTAL_H
+#ifndef STREAM_H
+#define STREAM_H
 
 #include "Video.hpp"
 
